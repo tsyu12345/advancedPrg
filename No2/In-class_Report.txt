@@ -1,0 +1,155 @@
+学籍番号：	5419045
+氏名：		高林秀
+
+-------------------
+問題番号：IR02-1
+
+PrintBanner.java
+
+public class PrintBanner implements Print{
+    public Banner banner;
+    public PrintBanner(String str) {
+        banner = new Banner(str);
+    }
+
+    public void printWeak() {
+        banner.showWithAster();
+    }
+
+    public void printStrong() {
+        banner.showWithParen();
+    }
+}
+
+
+
+
+
+
+
+
+-------------------
+問題番号：IR02-2
+
+NewBanner.java
+
+public class NewBanner {
+    private String str;
+    public NewBanner(String str) {
+        this.str = str;
+    }
+
+    public void showWithParen() {
+        System.out.println("###" + str + "###");
+    }
+
+    public void showWithAster() {
+        System.out.println("#####");
+        System.out.println(str);
+        System.out.println("#####");
+    }
+}
+
+PrintBanner.java
+
+public class PrintBanner implements Print {
+    private NewBanner banner;
+    private String str;
+    public PrintBanner(String string) {
+        banner = new NewBanner(string);
+        str = string;
+    }
+
+    public void printWeak() {
+        banner.showWithParen();
+       
+    }
+
+    public void printStrong() {
+        banner.showWithAster();
+    }
+}
+
+
+
+
+
+
+
+
+-------------------
+問題番号：IR02-3
+
+BookShelf.java
+
+import java.util.*;
+public class BookShelf implements Aggregate {
+    private ArrayList<Book> books;
+    private int last = 0;
+
+    public BookShelf(int maxSize) {
+        books = new ArrayList<Book>(maxSize);
+    }
+
+    public Book getBookAt(int index) {
+        return books.get(index);
+    }
+
+    public void appendBook(Book book) {
+        books.add(book);
+    }
+
+    public int getLength() {
+        return books.size();
+    }
+
+    public Iterator iterator() {
+        return new BookShelfIterator(this);
+    }
+}
+
+
+
+
+
+
+
+
+-------------------
+問題番号：
+
+
+
+
+
+
+
+
+
+-------------------
+問題番号：
+
+
+
+
+
+
+
+
+
+-------------------
+講義内容のまとめ：
+「講義内容」の各項目について文章で説明を記載せよ。
+
+adapterを定義することで、クラスが変化しても呼び出し側では変更しなくてすむ。iteratorパターンを使用することで、データ型が配列からArrayList型に変化したとき、
+Mainなど呼び出し側の記述を修正しなくてすむ。
+これによって、他のクラスに影響を及ぼすことがなくなり、大規模開発における保守性も高まる。
+
+
+
+
+
+
+
+
+-------------------

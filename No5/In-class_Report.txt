@@ -1,0 +1,149 @@
+学籍番号：	5419045
+氏名：		高林秀
+
+-------------------
+問題番号：IR05-1
+
+import java.util.Iterator;
+import java.util.ArrayList;
+
+public class Directory extends Entry {
+    private String name;
+    private ArrayList<Entry> entries = new ArrayList<Entry>();
+
+    public Directory(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSize() {
+        int size = 0;
+        // Do something.
+        Iterator it = entries.iterator();
+        while(it.hasNext()) {
+            Entry entry = (Entry)it.next();
+            size += entry.getSize();
+        }
+        return size;
+    }
+
+    public void add(Entry entry) {
+        entries.add(entry);
+    }
+
+    protected void printList(String prefix) {
+        System.out.println(prefix + "/" + toString());
+        Iterator it = entries.iterator();
+        while(it.hasNext()) {
+            Entry entry = (Entry)it.next();
+            entry.printList(prefix + "/" + name);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+-------------------
+問題番号：IR05-2
+
+public class UpBottomBorder extends Border{
+    private final char UP_BOTTOM_MARK = '=';
+    public UpBottomBorder(Display inside) {
+        super(inside);
+    }
+
+    public int getColumns() {
+        return inside.getColumns();
+    }
+
+    public int getRows() {
+        return inside.getRows();
+    }
+
+    public String getRowText(int row) {
+        if(row == 0 || row == inside.getRows()-1) {
+            return makeEndLine();
+        } else {
+            return inside.getRowText(row-1);
+        }
+        
+    }
+
+    private String makeEndLine() {
+        StringBuffer buf = new StringBuffer();
+        for(int i = 0; i < inside.getColumns(); i++) {
+            buf.append(this.UP_BOTTOM_MARK);
+        }
+        return buf.toString();
+    }
+
+}
+
+
+
+
+
+
+
+
+-------------------
+問題番号：IR05-3
+
+
+
+
+
+
+
+
+
+-------------------
+問題番号：
+
+
+
+
+
+
+
+
+
+-------------------
+問題番号：
+
+
+
+
+
+
+
+
+
+-------------------
+講義内容のまとめ：
+「講義内容」の各項目について文章で説明を記載せよ。
+
+compositパターンは、コードのあるフォルダとその中にある各ファイルに対して、同様の操作を行いたいとき、
+フォルダ、ファイルに関係なく、それらを同一のものと見なしたときのスーパークラスを作成する。
+両者共通の機能（メソッド）は予めこの抽象スーパークラスで定義し、具体的な実装は各継承クラスで行う。
+このようにすることで、外側と内側を区別せずに共通機能をもたせることができる。加えてこれは再帰的な構造を作成する。
+
+decoraterパターンは、例えば「任意の文字（文字列）を表示する」といったように、役割は違うが本質的には同じ機能をもつものを、同一に扱うためのデザインパターンである
+。compositパターンと似た構造を持つが、呼び出し側を同一化しながら新機能（新クラス）を追加できる。
+
+
+
+
+
+
+
+
+-------------------

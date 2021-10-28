@@ -1,0 +1,123 @@
+学籍番号：	5419045
+氏名：		高林秀
+
+-------------------
+問題番号：IR04-1
+
+import java.util.Random;
+
+public class CountDisplay extends Display {
+    public CountDisplay(DisplayImpl impl) {
+        super(impl);
+    }
+
+    public void multiDisplay(int times) {
+        open();
+        for(int i = 0; i < times; i++) {
+            print();
+        }
+        close();
+    }
+
+    public void randomDisplay(int times) {
+        open();
+        for(int i = 0; i < rand.nextInt(times); i++) {
+            print();
+        }
+        close()
+    }
+}
+
+
+
+
+
+
+
+
+
+-------------------
+問題番号：IR04-2
+
+public class NewDisplayImpl extends DisplayImpl{
+    private char c;
+    public NewDisplayImpl(char c) {
+        this.c = c;
+    }
+
+    public void startRow() {
+        System.out.print('<');
+    }
+
+    public void endRow() {
+        System.out.print('>');
+    }
+    
+    public void dipslayChar() {
+        System.out.print(c);
+    }
+}
+
+
+
+
+
+
+
+
+-------------------
+問題番号：IR04-3
+
+public class NewResolve extends Support{
+    public NewResolve(Strings name) {
+        super(name);
+    }
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+-------------------
+問題番号：
+
+
+
+
+
+
+
+
+
+-------------------
+問題番号：
+
+
+
+
+
+
+
+
+
+-------------------
+講義内容のまとめ：
+「講義内容」の各項目について文章で説明を記載せよ。
+
+Bridgeパターンは、構造が複雑なインスタンスを組み上げるための概念・考え方である。抽象クラスの継承時に新機能追加と、実装を同時に１つのクラス内で行うのではなく、別々に分けて行うことで見通しを良くする。
+
+
+
+
+
+
+
+
+-------------------

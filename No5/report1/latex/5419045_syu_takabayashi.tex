@@ -30,6 +30,24 @@
 \section{目的}
 本稿は今年度発展プログラミングの課題研究として、「デザインパターン」に準拠したコーディングスタイルの必要性について論ずることを目的とする。本稿前半では、デザインパターンの利点・効果・必要性などについて説明し、後半では、実際にコーディングを行う。その際、デザインパターンを使用する前のコードとデザインパターンを使用した際のコードを比較・考察していく。
 \section{デザインパターンとはなにか}
+この章では、プログラムコーディングおけるデザインパターンとはどのようなものなのか、歴史的背景や利点・効果、その必要性について述べる。\par
+\subsection{歴史的背景}
+デザインパターンは、オブジェクト指向型プログラミング言語において、記述したコードを様々なプログラムで再利用できるようにするために考案された「プログラムの設計ルール」のようなものである。1955年に出版された書籍「オブジェクト指向における再利用のためのデザインパターン\cite{book01}」にて、初めて「デザインパターン」と呼ばれる用語が使用された。その書籍の広がりにより、デザインパターンの考え方が広く知られるようになった。\par
+その書籍の著者ら（※参考文献の原著4名）は、23種にもおよぶデザインパターンを取り上げており、デザインパターンとはなにか、以下のように述べている。以下、\url{https://ja.wikipedia.org/wiki/%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3_(%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2)}より引用する。
+\begin{itemize}
+  \item 原文
+  \begin{quote}
+    [Design patterns] solve specific design problems and make object-oriented designs more flexible, elegant, and ultimately reusable. They help designers reuse successful designs by basing new designs on prior experience. A designer who is familiar with such patterns can apply them immediately to design problems without having to rediscover them.
+  \end{quote}
+  \item 訳文(Deepl\footnote{ドイツに拠点を置くDeepL GmbHによって開発された、ニューラルネットワークによる翻訳を行うサービス。Google 翻訳よりも精度が高く、微妙なニュアンスのある翻訳ができると話題。}による翻訳)
+  \begin{quote}
+    特定の設計上の問題を解決し、オブジェクト指向設計をより柔軟に、エレガントに、そして最終的には再利用可能にします。デザインパターンは、新しいデザインを過去の経験に基づいて行うことで、成功したデザインを再利用するのに役立ちます。このようなパターンに精通している設計者は、パターンを再発見することなく、すぐに設計問題に適用することができます。
+  \end{quote}
+\end{itemize}
+この書籍の著者たちは「Gof（Gang of Four）」と呼ばれデザインパターンの名前の１つにもなっている。\par
+Gofのデザインパターンはかなり前のデザインパターンである。そのため、現代では賛否両論あるようで、一部では批判的な意見も挙げられている。というのも、後に説明するが、デザインパターンはJavaやRubyなどオブジェクト指向型言語で使用される考え方だ。しかしGofのデザインパターンが発表されたのはJavaがリリースされる1995年よりも前、つまりオブジェクト指向プログラミングというものが未熟な時代に発表されたからだ。したがって、現代のプログラミングと合致しない場合もあるという。この意見は\url{https://qiita.com/irxground/items/d1f9cc447bafa8db2388}より参考にさせていただいた。
+\subsubsection{デザインパターンの利点・効果}
+\subsubsection{デザインパターンの必要性}
 
 \section{実際のコーディングでデザインパターンを利用する}
 \subsection{課題説明}
@@ -64,5 +82,8 @@
 \subsection{考察}
 \section{まとめ}
 \section{巻末資料}
+\begin{thebibliography}{99}
+  \bibitem{book01}  Erich Gamma (原著), Ralph Johnson (原著), Richard Helm (原著), John Vlissides (原著), 本位田 真一 (翻訳), 吉田 和樹 (翻訳)「オブジェクト指向における再利用のためのデザインパターン」改訂版（ソフトバンククリエイティブ,1999/10/1)
+\end{thebibliography}
 
 \end{document}

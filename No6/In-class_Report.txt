@@ -2,40 +2,103 @@
 氏名：		高林秀
 
 -------------------
-問題番号：
+問題番号：IR06-1
+
+・ゲストOS：Ubuntu
+CPUコア数：4
+スレッド数：4
+
+・ホストOS：Windows10
+CPUコア数：4
+スレッド数：8
 
 
+-------------------
+問題番号：IR06-2
 
+・プロセス一覧
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+is-user     7884 34.6  9.9 3656224 303984 ?      Sl   11:06   2:02 /usr/lib/firefox/firefox
+is-user     7987  2.1  2.5 2436848 77188 ?       Sl   11:07   0:07 /usr/lib/firefox/firefox -contentp
+is-user     7999  1.0  1.9 2418032 59660 ?       Sl   11:07   0:03 /usr/lib/firefox/firefox -contentp
+is-user     8080  4.0  3.6 2548260 111864 ?      Sl   11:07   0:13 /usr/lib/firefox/firefox -contentp
+is-user     8213  0.5  1.5 2375592 46232 ?       Sl   11:07   0:01 /usr/lib/firefox/firefox -contentp
 
+・スレッド一覧
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+is-user     8213  0.3  1.5 2375592 46232 ?       -    11:07   0:01 /usr/lib/firefox/firefox -contentp
+is-user        -  0.3    -      -     - -        Sl   11:07   0:01 -
+is-user        -  0.0    -      -     - -        Sl   11:07   0:00 -
+is-user        -  0.0    -      -     - -        Sl   11:07   0:00 -
+is-user        -  0.0    -      -     - -        Sl   11:07   0:00 -
+is-user        -  0.0    -      -     - -        Sl   11:07   0:00 -
+is-user        -  0.0    -      -     - -        Sl   11:07   0:00 -
+is-user        -  0.0    -      -     - -        Sl   11:07   0:00 -
 
+-------------------
+問題番号：IR06-3
+例えば、何らかの時間がかかる処理、の結果や進捗状況をGUIで表示させようとするとき、
+GUI表示（と表示の更新）を行うスレッドと、処理を行うスレッドを並行で処理する、といったシーン。
 
 
 
 
 -------------------
-問題番号：
+問題番号：IR06-4
+package echo;
+
+import java.util.Scanner;
+
+public class Echo {
+    
+    private final static long SLEEP_LEN_MSEC = 100;
+
+    private Scanner scanner;
+    private int n;
+    
+    
+    public Echo() {
+        scanner = new Scanner(System.in);
+        System.out.print("n > ");
+        n = scanner.nextInt();
+    }
+    
+
+    
+    private void echo() throws InterruptedException {
+        WaitUserInput wui = new WaitUserInput();
+        wui.start();
+        while(n != 0) {
+            System.out.print(n);
+            Thread.sleep(SLEEP_LEN_MSEC);
+            n = wui.m != -1 ? wui.m : n;
+        }
+    }
+    
+    
+    public static void main(String[] args) throws InterruptedException {
+        Echo ste = new Echo();
+        ste.echo();
+    }
+
+}
 
 
+class WaitUserInput extends Thread {
+    private Scanner scanner;
+    public int m = -1;
 
+    public void run() {
+        while(true) {
+            scanner = new Scanner(System.in);
+            m = scanner.nextInt();
+            if(m == 0) {
+                break;
+            }
+        }        
+    }
+}
 
-
-
-
-
-
--------------------
-問題番号：
-
-
-
-
-
-
-
-
-
--------------------
-問題番号：
 
 
 
@@ -60,7 +123,14 @@
 講義内容のまとめ：
 「講義内容」の各項目について文章で説明を記載せよ。
 
+プロセスとはアプリケーションなどの実行単位である。
+スレッドとはそのアプリケーション内で動作しているプログラムの単位である。
+したがって、プロセスは通常１つ以上のスレッドから構成される。
 
+並列処理とは、異なる２つの処理を「同時」に行うことである。
+並行処理とは、異なる２つの処理を「同時に実行状態にする」ことである。
+すなわち、ある一定時間ごとにCPUが行う処理を切り替えながら、１つの時点で行われる処理数が１つなのが並行処理（マルチスレッド）
+１つの時点で行われる処理数が２つ以上の場合が並列処理（マルチプロセス）である。
 
 
 

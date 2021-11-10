@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  10 NOV 2021 17:36
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  10 NOV 2021 18:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -542,85 +542,92 @@ LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 30.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 30.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 34.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 34.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
+5.
+
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-6.
+5.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 36.
+(Font)              scaled to size 9.60999pt on input line 35.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 36.
+(Font)              scaled to size 9.60999pt on input line 35.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 36.
+(Font)              <10> on input line 35.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 36.
+(Font)              <7> on input line 35.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 36.
+(Font)              <5> on input line 35.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 36.
+(Font)              scaled to size 6.72699pt on input line 35.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 36.
+(Font)              scaled to size 4.805pt on input line 35.
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+[]\T1/lmr/m/n/10 url:[]$\T1/lmtt/m/n/10 https : / / drive . google . com / driv
+e / folders / 1QEt-[]NBptDGq2J1BgOyFnGUx8SMwL5oNc ? usp =
+ []
+
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 39.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 39.
+[1
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
 \T1/lmtt/m/n/10 87 % E3 % 82 % B6 % E3 % 82 % A4 % E3 % 83 % B3 % E3 % 83 % 91 
 % E3 % 82 % BF % E3 % 83 % BC % E3 % 83 % B3 _ (%E3 % 82 % BD % E3 % 83 % 95 %
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
-8.
-(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [1
-
-]
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 42.
+(Font)              scaled to size 6.72699pt on input line 47.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 5.76599pt on input line 42.
- [2] [3]
+(Font)              scaled to size 5.76599pt on input line 47.
+[2] [3]
 LaTeX Font Info:    Font shape `JT1/mc/b/n' in size <10> not available
-(Font)              Font shape `JT1/mc/bx/n' tried instead on input line 90.
+(Font)              Font shape `JT1/mc/bx/n' tried instead on input line 103.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 90.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 103.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 90.
+(Font)              scaled to size 9.60999pt on input line 103.
 LaTeX Font Info:    Font shape `JY1/mc/b/n' in size <10> not available
-(Font)              Font shape `JY1/mc/bx/n' tried instead on input line 90.
+(Font)              Font shape `JY1/mc/bx/n' tried instead on input line 103.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 90.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 103.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 90.
+(Font)              scaled to size 9.60999pt on input line 103.
 
-Overfull \hbox (70.88625pt too wide) in paragraph at lines 95--95
+Overfull \hbox (70.88625pt too wide) in paragraph at lines 108--108
  []      \T1/lmtt/m/n/10 OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubun
 tu2.20.04, mixed mode, sharing)[] 
  []
 
 [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 109.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 122.
  [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 109.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
  (./5419045_syu_takabayashi.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 109.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 109.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 122.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 122.
 Package rerunfilecheck Info: File `5419045_syu_takabayashi.out' has not changed
 .
-(rerunfilecheck)             Checksum: 0E7D803BE2C0E29E1FC39570246EB863;714.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 109.
+(rerunfilecheck)             Checksum: BC387059A3E63977B21C5443F10421B1;762.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 122.
  ) 
 Here is how much of TeX's memory you used:
  7469 strings out of 482863
  110302 string characters out of 5959218
- 373957 words of memory out of 5000000
+ 374013 words of memory out of 5000000
  22585 multiletter control sequences out of 15000+600000
  604524 words of font info for 121 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
- 37i,8n,29p,689b,440s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,8n,29p,685b,442s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 5419045_syu_takabayashi.dvi (5 pages, 20064 bytes).
+Output written on 5419045_syu_takabayashi.dvi (5 pages, 21872 bytes).

@@ -5,7 +5,7 @@ public class Main {
         System.out.print("Enter the maximum number of values to output..>");
         Scanner scan = new Scanner(System.in);
         int upper_range = scan.nextInt();
-        PlayFizzBuzz fizzbuzz_obj = new PlayFizzBuzz();
+        FizzBuzz fizzbuzz_obj = new UserQuestion(new FBPlayImp());
         
         for(int i = 0; i < upper_range; i++) {
             System.out.print(i+1);

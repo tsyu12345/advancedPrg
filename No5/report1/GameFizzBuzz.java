@@ -1,5 +1,5 @@
 import java.util.*;
-public class PlayFizzBuzz extends FizzBuzz {
+public class GameFizzBuzz extends FizzBuzz {
     
     protected String judge_fizzbuzz(int i) {
         String result = "";
@@ -17,16 +17,14 @@ public class PlayFizzBuzz extends FizzBuzz {
 
     public void displayFizzBuzz(int i) {
         if(doQuestion(i)){
-            boolean ans = questionFizzBuzz(i);
-            if(ans == true) {
+            boolean result = questionFizzBuzz(i);
+            if(result == true) {
                 System.out.print("##You are right.##");
             } else {
                 System.out.print("##You worng!! Bye.##");
                 System.exit(0);
             }
         }
-        String result = judge_fizzbuzz(i);
-        System.out.print(result);
     }
 
     private boolean doQuestion(int i) {

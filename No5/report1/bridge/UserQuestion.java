@@ -1,20 +1,12 @@
 import java.util.*;
-public class PlayFizzBuzz extends FizzBuzz {
+
+public class UserQuestion extends FizzBuzz{
     
-    protected String judge_fizzbuzz(int i) {
-        String result = "";
-        if(i >=3 ) {
-            if(i % 3 == 0 && i % 5 == 0) {
-                result = "FizzBuzz";
-            } else if(i % 3 == 0) {
-                result = "Fizz";
-            }else if(i % 5 == 0) {
-                result = "Buzz";
-            }
-        }
-        return result;
+    public UserQuestion(FizzBuzzImpl fzImpl) {
+        super(fzImpl);
     }
 
+    @Override
     public void displayFizzBuzz(int i) {
         if(doQuestion(i)){
             boolean ans = questionFizzBuzz(i);
@@ -54,4 +46,6 @@ public class PlayFizzBuzz extends FizzBuzz {
             return true;
         }
     }
+
+
 }

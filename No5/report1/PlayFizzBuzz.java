@@ -3,10 +3,11 @@ public class PlayFizzBuzz extends FizzBuzz {
     protected String judge_fizzbuzz(int i) {
         String result = "";
         if(i >=3 ) {
-            if(i % 3 == 0) {
+            if(i % 3 == 0 && i % 5 == 0) {
+                result = "FizzBuzz";
+            } else if(i % 3 == 0) {
                 result = "Fizz";
-            }
-            if(i % 5 == 0) {
+            }else if(i % 5 == 0) {
                 result = "Buzz";
             }
         }

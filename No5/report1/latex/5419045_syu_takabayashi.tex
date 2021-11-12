@@ -232,7 +232,78 @@ FizzBuzzゲームとは、１から任意の数までの範囲を対象に、そ
   \item コンソール上に出力する数値$d$の範囲を$1 \leq d \leq i$とし,$d = i$になるまで繰り返し改行して表示する。
   \item このとき、$d$の値が３の倍数のならば出力は「Fizz」とし、５の倍数ならば出力は「Buzz」、３と５の公倍数ならば出力は「FizzBuzz」とする。
 \end{enumerate}
+以下は、その実行例である。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.6]{ImgMovies/FizzBuzzEx.png}
+  \caption{FizzBuzzの表示例}
+\end{figure}
+プログラム起動時に、ユーザーが表示する数値の上限を入力し、１〜その数値までの数が「Fizz」または「Buzz」または「FizzBuzz」に該当するのか出力している。\par
+まず、基本機能として引数に渡された整数が「Fizz」なのか「Buzz」なのか「FizzBuzz」なのか判定し出力するプログラムを作成する。その後、新機能として新たに「Fizz」または「Buzz」または「FizzBuzz」に該当する数字にループ変数が来たとき、ユーザーに「Fizz」または「Buzz」または「FizzBuzz」のどれに該当するか当ててもらう機能を実装する。\par
 \subsubsection{デザインパターン前のソースコード}
+\paragraph{実装}
+\begin{itemize}
+  \item Main.java
+  \begin{verbatim}
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.print("Enter the maximum number of values to output..>");
+        Scanner scan = new Scanner(System.in);
+        int upper_range = scan.nextInt();
+        scan.close();
+        PlayFizzBuzz fizzbuzz_obj = new PlayFizzBuzz();
+
+        for(int i = 0; i < upper_range; i++) {
+            System.out.print(i+1);
+            System.out.print(".");
+            fizzbuzz_obj.displayFizzBuzz(i+1);
+            System.out.println();
+        }
+    }
+
+}
+  \end{verbatim}
+  \item FizzBuzz.java
+  \begin{verbatim}
+public abstract class FizzBuzz {
+    protected abstract String judge_fizzbuzz(int i);
+    public abstract void displayFizzBuzz(int i);
+}
+  \end{verbatim}
+  \item PlayFizzBuzz.java
+  \begin{verbatim}
+public class PlayFizzBuzz extends FizzBuzz {
+
+    protected String judge_fizzbuzz(int i) {
+        String result = "";
+        if(i >=3 ) {
+            if(i % 3 == 0 && i % 5 == 0) {
+                result = "FizzBuzz";
+            } else if(i % 3 == 0) {
+                result = "Fizz";
+            }else if(i % 5 == 0) {
+                result = "Buzz";
+            }
+        }
+        return result;
+    }
+
+    public void displayFizzBuzz(int i) {
+        String result = judge_fizzbuzz(i);
+        System.out.print(result);
+    }
+}
+
+  \end{verbatim}
+\end{itemize}
+まず、これらのソースコードについて説明する。
+%%ここにその説明。
+実行時は以下のようになる。
+次に、このソースコードに新機能を追加した際のソースコードを添付する。
+%%ここに変更を加えたソースコードを表示。
+
 \subsubsection{デザインパターン後のソースコード}
 \subsection{考察}
 \section{まとめ}

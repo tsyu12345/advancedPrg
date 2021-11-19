@@ -239,11 +239,19 @@ FizzBuzzゲームとは、１から任意の数までの範囲を対象に、そ
   \caption{FizzBuzzの表示例}
 \end{figure}
 プログラム起動時に、ユーザーが表示する数値の上限を入力し、１〜その数値までの数が「Fizz」または「Buzz」または「FizzBuzz」に該当するのか出力している。\par
-まず、基本機能として引数に渡された整数が「Fizz」なのか「Buzz」なのか「FizzBuzz」なのか判定し出力するプログラムを作成する。その後、新機能として新たに「Fizz」または「Buzz」または「FizzBuzz」に該当する数字にループ変数が来たとき、ユーザーに「Fizz」または「Buzz」または「FizzBuzz」のどれに該当するか当ててもらう機能を実装する。\par
+まず、基本機能として引数に渡された整数が「Fizz」なのか「Buzz」なのか「FizzBuzz」なのか判定し出力するプログラムを作成する。その後、新機能として新たに「Fizz」または「Buzz」または「FizzBuzz」に該当する数字に出力が来たとき、ユーザーに「Fizz」または「Buzz」または「FizzBuzz」のどれに該当するか当ててもらう機能を実装する。\par
 \subsubsection{デザインパターン前のソースコード}
 \paragraph{実装}
-\begin{itemize}
-  \item Main.java
+この時点でのファイル構造は以下の様になっている。
+\begin{verbatim}
+      ./
+      ├── FizzBuzz.java
+      ├── Main.java
+      ├── PlayFizzBuzz.java
+\end{verbatim}
+各Javaファイルを格納したフォルダに、呼び出しと表示を行うMain.java、抽象クラスであるFizzBuzzを定義したFizzBuzz.java、FizzBuzzクラスを継承し、親クラスの抽象メソッドの実装を担うPlayFizzBuzz.javaを作成した。FizzBuzzゲームの処理の大枠を親クラスであるFizzBuzzクラスに抽象メソッドとして定義し、具体的な処理内容を小クラスであるPlayFizzBuzzクラスで記述している。\par
+各ファイルのソースコードは下記のとおりである。
+\begin{itembox}[l]{Main.java}
   \begin{verbatim}
 import java.util.*;
 
@@ -252,7 +260,6 @@ public class Main {
         System.out.print("Enter the maximum number of values to output..>");
         Scanner scan = new Scanner(System.in);
         int upper_range = scan.nextInt();
-        scan.close();
         PlayFizzBuzz fizzbuzz_obj = new PlayFizzBuzz();
 
         for(int i = 0; i < upper_range; i++) {
@@ -265,14 +272,16 @@ public class Main {
 
 }
   \end{verbatim}
-  \item FizzBuzz.java
+\end{itembox}
+\begin{itembox}[l]{FizzBuzz.java}
   \begin{verbatim}
 public abstract class FizzBuzz {
     protected abstract String judge_fizzbuzz(int i);
     public abstract void displayFizzBuzz(int i);
 }
   \end{verbatim}
-  \item PlayFizzBuzz.java
+\end{itembox}
+\begin{itembox}[l]{PlayFizzBuzz.java}
   \begin{verbatim}
 public class PlayFizzBuzz extends FizzBuzz {
 
@@ -295,19 +304,283 @@ public class PlayFizzBuzz extends FizzBuzz {
         System.out.print(result);
     }
 }
-
   \end{verbatim}
-\end{itemize}
-まず、これらのソースコードについて説明する。
+\end{itembox}
+実装部分であるPlayFizzBuzzクラスの各メソッドについて説明する。最初のjudge\_fizzbuzzメソッドであるが、これは引数に与えられた整数値１つが、「Fizz」「Buzz」「FizzBuzz」のどれに該当するのか、その結果を文字列で返す。どれにも該当しない場合は、その結果を空文字で返す。このメソッドはPlayFizzBuzzクラス内、でしか使用しないため修飾子protectedを付与した。本来privateでも良いのだが、親クラスであるFizzBuzzクラス内で、この抽象メソッドを定義してしまっているのでprivateが使用できない。続くdisplayFizzBuzzメソッド内で、judge\_fizzbuzzメソッドの結果を標準出力している。\par
+実行時の出力は下図。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.6]{ImgMovies/prod01-result1.png}
+  \caption{実行時の様子}
+\end{figure}
 %%ここにその説明。
-実行時は以下のようになる。
-次に、このソースコードに新機能を追加した際のソースコードを添付する。
+実行開始後に、出力する数値の上限の入力を求められる。ユーザーはその指示に従い整数を入力する。Enterを押し数値を渡すと、その数値までの「Fizz」「Buzz」「FizzBuzz」の結果を表示している。画像の実行例では上限値が20で、1~20までの範囲でそれぞれの数字が「Fizz」「Buzz」「FizzBuzz」のどれに該当するのか出力している。
+\paragraph{新機能の追加}
+では、新機能である、ユーザーに「Fizz」または「Buzz」または「FizzBuzz」のどれに該当するか当ててもらう機能を追加する。特になにも意識せず、PlayFizzBuzzクラス内に、「doQuestionメソッド」、「questionFizzBuzzメソッド」を追加した。
 %%ここに変更を加えたソースコードを表示。
 
+\begin{itemize}
+  \item PlayFizzBuzz.java
+\end{itemize}
+\begin{verbatim}
+  import java.util.*;
+  public class PlayFizzBuzz extends FizzBuzz {
+
+      protected String judge_fizzbuzz(int i) {
+          String result = "";
+          if(i >=3 ) {
+              if(i % 3 == 0 && i % 5 == 0) {
+                  result = "FizzBuzz";
+              } else if(i % 3 == 0) {
+                  result = "Fizz";
+              }else if(i % 5 == 0) {
+                  result = "Buzz";
+              }
+          }
+          return result;
+      }
+
+      public void displayFizzBuzz(int i) {
+          if(doQuestion(i)){
+              boolean ans = questionFizzBuzz(i);
+              if(ans == true) {
+                  System.out.print("##You are right.##");
+              } else {
+                  System.out.print("##You worng!! Bye.##");
+                  System.exit(0);
+              }
+          }
+          String result = judge_fizzbuzz(i);
+          System.out.print(result);
+      }
+
+      private boolean doQuestion(int i) {
+          String result = judge_fizzbuzz(i);
+          if(result != "") {
+              return true;
+          } else {
+              return false;
+          }
+      }
+
+      protected boolean questionFizzBuzz(int i) {
+          String ans = judge_fizzbuzz(i);
+          Scanner scan = new Scanner(System.in);
+          String userAns = "";
+          if(ans != "") {
+              System.out.print(
+                  "
+                  Is this number 'Fizz'? Or is it 'Buzz',
+                   or is it 'FizzBuzz'? >
+                   "
+                  );
+              userAns = scan.nextLine();
+          }
+          if(ans.equals(userAns) == false) {
+              return false;
+          } else {
+              return true;
+          }
+      }
+  }
+
+\end{verbatim}
+doQuestionメソッドで、ユーザーに質問を問いかけるか判定し、questionFizzBuzzメソッド内で、ユーザーの解答が正解かどうか判定している。その結果を基本機能であったdisplayFizzBuzzを拡張して表示するようにした。\par
+実行時の様子は下図。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.6]{ImgMovies/prod01-result2.png}
+  \caption{実行時の様子}
+\end{figure}
+これまで通り、ユーザーが表示する数値の上限を入力し、コンソールにその上限までの数値が表示される。表示されている数値が、「Fizz」「Buzz」「FizzBuzz」のいずれかに該当する場合、ユーザーに質問を問いかけている。ユーザーが正解の文字列を入力すれば、次の数字へ進み、不正解ならばメッセージを出力してプログラムを終了している。
 \subsubsection{デザインパターン後のソースコード}
+では、Bridgeパターンを使用してFizzBuzzゲームを作成してみる。
+まず、ディレクトリ構造から説明する。
+\begin{verbatim}
+    ./
+    ├── FBPlayImp.java
+    ├── FizzBuzz.java
+    ├── FizzBuzzImpl.java
+    ├── Main.java
+    └── UserQuestion.java
+\end{verbatim}
+なお、UserQuestion.javaにて前述と同様の新機能追加を行っている。\par
+それぞれのソースコードは下記のとおりである。
+\begin{itemize}
+  \item Main.java
+  \begin{verbatim}
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.print("Enter the maximum number of values to output..>");
+        Scanner scan = new Scanner(System.in);
+        int upper_range = scan.nextInt();
+        FizzBuzz fizzbuzz_obj = new FizzBuzz(new FBPlayImp());
+
+        for(int i = 0; i < upper_range; i++) {
+            System.out.print(i+1);
+            System.out.print(".");
+            fizzbuzz_obj.displayFizzBuzz(i+1);
+            System.out.println();
+        }
+    }
+
+}
+  \end{verbatim}
+  \item FizzBuzz.java
+\begin{verbatim}
+
+public class FizzBuzz {
+    private FizzBuzzImpl fzImpl;
+    public FizzBuzz(FizzBuzzImpl fzImpl) {
+        this.fzImpl = fzImpl;
+    }
+
+    protected String judge_fizzbuzz(int i) {
+        String result;
+        result = fzImpl.judge_fizzbuzz(i);
+        return result;
+    }
+
+    public void displayFizzBuzz(int i) {
+        fzImpl.displayFizzBuzz(i);
+    }
+}
+
+  \end{verbatim}
+  \item FBPlayImp.java
+  \begin{verbatim}
+
+public class FBPlayImp extends FizzBuzzImpl {
+
+    protected String judge_fizzbuzz(int i) {
+        String result = "";
+        if(i >=3 ) {
+            if(i % 3 == 0 && i % 5 == 0) {
+                result = "FizzBuzz";
+            } else if(i % 3 == 0) {
+                result = "Fizz";
+            }else if(i % 5 == 0) {
+                result = "Buzz";
+            }
+        }
+        return result;
+    }
+
+    public void displayFizzBuzz(int i) {
+        String result = judge_fizzbuzz(i);
+        System.out.print(result);
+    }
+
+}
+  \end{verbatim}
+  \item FizzBuzzImpl.java
+  \begin{verbatim}
+  public abstract class FizzBuzzImpl {
+    protected abstract String judge_fizzbuzz(int i);
+    public abstract void displayFizzBuzz(int i);
+  }
+  \end{verbatim}
+  \item UserQuestion.java
+  \begin{verbatim}
+    import java.util.*;
+
+public class UserQuestion extends FizzBuzz{
+
+    public UserQuestion(FizzBuzzImpl fzImpl) {
+        super(fzImpl);
+    }
+
+    @Override
+    public void displayFizzBuzz(int i) {
+        if(doQuestion(i)){
+            boolean ans = questionFizzBuzz(i);
+            if(ans == true) {
+                System.out.print("##You are right.##");
+            } else {
+                System.out.print("##You worng!! Bye.##");
+                System.exit(0);
+            }
+        }
+        String result = judge_fizzbuzz(i);
+        System.out.print(result);
+    }
+
+    private boolean doQuestion(int i) {
+        String result = judge_fizzbuzz(i);
+        if(result != "") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    protected boolean questionFizzBuzz(int i) {
+        String ans = judge_fizzbuzz(i);
+        Scanner scan = new Scanner(System.in);
+        String userAns = "";
+        if(ans != "") {
+            System.out.print(
+                "Is this number 'Fizz'? Or is it 'Buzz', or is it 'FizzBuzz'? > "
+                );
+            userAns = scan.nextLine();
+        }
+        if(ans.equals(userAns) == false) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+  \end{verbatim}
+\end{itemize}
+構造としては、まず基本機能の実装を抽象クラスであるFizzBuzzImplクラスで抽象メソッドを定義し、その継承先であるFBPlayImpクラスにて、抽象メソッドの実装を行っている。各メソッドの処理内容は、Bridgeパターンを用いないものと同じである。また実行時の様子は、これもBridgeパターンを用いないものと同じで下図のようになった。\par
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.6]{ImgMovies/prod02-result1.png}
+  \caption{実行時の様子}
+\end{figure}
+次に、新機能の追加について説明する。新機能で使用するメソッドは、FizzBuzzクラスを継承したUserQuestionクラスにて行っている。その際、FizzBuzzクラスのdisplayFizzBuzzメソッドの一部を拡張する必要があったため、メソッドのオーバーライドを行っている。この機能を呼び出すときは、Mainクラス内で、UserQuestionクラスのインスタンスを作成し、displayFizzBuzzメソッドを呼び出す。
+\begin{itemize}
+  \item Main.java
+  \begin{verbatim}
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.print("Enter the maximum number of values to output..>");
+        Scanner scan = new Scanner(System.in);
+        int upper_range = scan.nextInt();
+        FizzBuzz fizzbuzz_obj = new UserQuestion(new FBPlayImp());
+
+        for(int i = 0; i < upper_range; i++) {
+            System.out.print(i+1);
+            System.out.print(".");
+            fizzbuzz_obj.displayFizzBuzz(i+1);
+            System.out.println();
+        }
+    }
+}
+  \end{verbatim}
+\end{itemize}
+  実行時の様子は下図。
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{ImgMovies/prod02-result2.png}
+    \caption{実行時の様子}
+  \end{figure}
 \subsection{考察}
+まずBridgeパターンを用いない場合のソースコードを見てみると、ある問題点が浮かび上がる。それは基本機能の実装と、新機能の追加を一つのクラス内で行っていることにある。このようにすると、PlayFizzBuzzクラスの継承の意味が「基本機能の実装」と「新機能の追加」という２つの目的に基づいて行われたことになるため、そのクラスが何を行うクラスなのかはっきりしなくなってしまう。しあたがって、コードの可読性の点で良いとは言えない。\par
+対して、Bridgeパターンを使用したソースコードを見てみると、「基本機能の実装」はFBPlayImpクラスが行い、「新機能の追加」はUserQuestionクラスが行っている。これらのクラスの継承元はそれぞれ、FizzBuzzImplクラス、FizzBuzzクラスと別のクラスを継承していることが分かる。このようにすることで、１つの継承には１つの目的が割り当てられ、その継承がなにを目的として行われたのかが明確になる。したがって、実装と機能追加が混在することがなく、コードの可読性の向上ができたと考えられる。\par
+しかしその反面デメリッ卜もある。それは、コードがBridgeパターンを使用しないものよりも、分散されてしまっている点が挙げられるだろう。継承を多く利用しているので、役割が明確に分けられているとは言え、単純なプログラムなのにコードが複数のファイルに分散されてしまっている。
+
 \section{まとめ}
 \section{巻末資料}
+本稿で使用したコードは以下のリポジトリに掲載している。
+\begin{itemize}
+  \item GitHub:\url{https://github.com/tsyu12345/advancedPrg}
+\end{itemize}
 \begin{thebibliography}{99}
   \bibitem{book01}  Erich Gamma (原著), Ralph Johnson (原著), Richard Helm (原著), John Vlissides (原著), 本位田 真一 (翻訳), 吉田 和樹 (翻訳)「オブジェクト指向における再利用のためのデザインパターン」改訂版（ソフトバンククリエイティブ,1999/10/1)
 \end{thebibliography}

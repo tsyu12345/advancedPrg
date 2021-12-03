@@ -12,12 +12,22 @@ public class Main {
         dlThread.start();
         
         Result result = new Result();
-        WordCounter wc = new WordCounter(downloader, result);
-        Thread wcThread = new Thread(wc);
-        wcThread.start();
+        //WordCounter wc = new WordCounter(downloader, result);
+        //Thread wcThread = new Thread(wc);
+        //wcThread.start();
 
+        Thread[] counterThreadArray = new Thread[TH_COUNT];
+        for(int i = 0; i < counterThreadArray.length; i++) {
+            WordCounter counter = new WordCounter(downloader, result);
+            counterThreadArray[i] = new Thread(counter);
+            counterThreadArray[i].start();
+
+        }
         dlThread.join();
-        wcThread.join();
+        for(int i = 0 ; i < counterThreadArray.length; i++) {
+            counterThreadArray[i].join();
+        }
+        //wcThread.join();
 
         System.out.println("Main: " + result.getWordCount() + " words");
 

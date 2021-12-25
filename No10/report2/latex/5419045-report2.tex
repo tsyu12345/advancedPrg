@@ -1,4 +1,4 @@
-\documentclass[dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx, titlepage]{jsarticle}
 \usepackage[T1]{fontenc}
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{lmodern}
@@ -15,16 +15,61 @@
 \usepackage{ascmac}
 \usepackage{url}
 
-\title{Javaによる並行処理を利用したアプリケーション開発}
-\author{文理学部情報科学科\\5419045 高林 秀}
+\title{LatLongConverterドキュメント}
 \date{\today}
+\author{日本大学 文理学部情報科学科\\5419045 高林 秀}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-
+本ドキュメントは、今年度発展プログラミングの課題研究として作成する、Javaを使用したマルチスレッド処理を伴うアプリケーションの仕様を説明するものである。\par
+本稿前半部では、本制作の目的、制作したアプリケーションの名前や仕様などの説明、実際に動作させる際の手順を解説する。後半部では、並行処理にまつわる歴史的な背景について軽く説明する。巻末部では本アプリケーションのソースコードを掲載したリポジトリのURLを示しているので、必要に応じてご参照いただきたい。\par
+なお、本アプリケーションは開発環境と同等の環境のみ動作保証対象とする。
 \end{abstract}
+
+\section{目的}
+本稿で紹介するアプリケーションは、今年度発展プログラミングの課題研究として、Javaを使用したマルチスレッド処理を伴うアプリケーションを開発することを目的とする。並びに、開発を通してJava、マルチスレッドプログラミングに対する理解を深めることを目的とする。\par
+\section{前提知識}
+本稿では「マルチスレッド」と呼ばれる言葉をしばしば「並行処理」と言い換えて表現する部分がある。\par
+なお、Javaの言語特性、基本仕様、アプリケーションに関係のない部分に関する説明は本稿では省略する。\par
+加えて、本アプリケーションの開発にはクラスや、継承などの機能を使用する。その部分に関する説明は以下のURLから、レポート「interface、抽象クラスを利用した Java のペア・プログラミング」を参考いただきたい。
+\begin{itemize}
+  \item interface、抽象クラスを利用した Java のペア・プログラミング:\url{https://drive.google.com/drive/folders/1QEt-NBptDGq2J1BgOyFnGUx8SMwL5oNc?usp=sharing}
+\end{itemize}
+\section{アプリケーション名}
+LatLongConverter
+\section{アプリケーション概要}
+LatLongConverterは、入力として住所または郵便番号を受け取り、その地点の緯度と経度の座標を表示するアプリケーションである。
+\section{想定シーン}
+\section{並行処理部分の概要}
+\section{クラス・メソッドの説明}
+\section{並行処理実現のための工夫した点}
+\section{開発環境}
+\begin{itemize}
+  \item ホストOS：Window10 Home 20H2
+  \item 仮想OS：Ubuntu 20.04.2 LTS
+  \item CPU：Intel(R)Core(TM)i7-9700K @ 3.6GHz
+  \item GPU：Nvidia Geforce RTX2070 OC @ 8GB
+  \item ホストRAM：16GB
+  \item 仮想RAM：4GB
+  \item 使用エディタ：Microsoft Visual Studio Code
+  \item 使用言語：Java
+  \begin{itemize}
+    \item バージョン情報は下記に示す。
+    \begin{verbatim}
+  openjdk version "11.0.11" 2021-04-20
+  OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
+  OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode, sharing)
+    \end{verbatim}
+  \end{itemize}
+\end{itemize}
+\section{付録：並行処理の歴史的背景}
+\section{巻末付録}
+アプリケーションのソースコードは以下のリポジトリに掲載している。
+\begin{itemize}
+  \item GitHub:\url{https://github.com/tsyu12345/advancedPrg}
+\end{itemize}
 
 \end{document}

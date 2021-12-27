@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  26 DEC 2021 20:54
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  27 DEC 2021 23:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -567,42 +567,46 @@ LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 11.53198pt on input line 43.
  [1]
-LaTeX Font Info:    Font shape `JT1/mc/b/n' in size <10> not available
-(Font)              Font shape `JT1/mc/bx/n' tried instead on input line 69.
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 69.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 69.
-LaTeX Font Info:    Font shape `JY1/mc/b/n' in size <10> not available
-(Font)              Font shape `JY1/mc/bx/n' tried instead on input line 69.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 69.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 69.
-
-Overfull \hbox (49.8863pt too wide) in paragraph at lines 74--74
- []  \T1/lmtt/m/n/10 OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.
-20.04, mixed mode, sharing)[] 
+Overfull \hbox (53.52127pt too wide) in paragraph at lines 99--103
+[][][][] 
  []
 
 [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 92.
+LaTeX Font Info:    Font shape `JT1/mc/b/n' in size <10> not available
+(Font)              Font shape `JT1/mc/bx/n' tried instead on input line 129.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 129.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 129.
+LaTeX Font Info:    Font shape `JY1/mc/b/n' in size <10> not available
+(Font)              Font shape `JY1/mc/bx/n' tried instead on input line 129.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 129.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 129.
  [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 92.
+Overfull \hbox (39.38634pt too wide) in paragraph at lines 134--134
+ []\T1/lmtt/m/n/10 OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20
+.04, mixed mode, sharing)[] 
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
+[4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
  (./5419045-report2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 92.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 92.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 151.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 151.
 Package rerunfilecheck Info: File `5419045-report2.out' has not changed.
-(rerunfilecheck)             Checksum: A55BF2DBECC8B6C44902B6F987B4E1CA;706.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
+(rerunfilecheck)             Checksum: 672EBE70ADF8D8CDB3E2C8B641D8D170;761.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 151.
  ) 
 Here is how much of TeX's memory you used:
- 7452 strings out of 482863
- 110019 string characters out of 5959218
- 373859 words of memory out of 5000000
- 22573 multiletter control sequences out of 15000+600000
+ 7453 strings out of 482863
+ 110028 string characters out of 5959218
+ 373918 words of memory out of 5000000
+ 22574 multiletter control sequences out of 15000+600000
  588838 words of font info for 110 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
- 37i,6n,29p,712b,348s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,8n,29p,712b,601s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 5419045-report2.dvi (5 pages, 11816 bytes).
+Output written on 5419045-report2.dvi (6 pages, 18320 bytes).

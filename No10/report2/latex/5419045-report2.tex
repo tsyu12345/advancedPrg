@@ -55,9 +55,66 @@ SpamCallIdentiferは、入力として電話番号（ハイフン無し）を受
 \section{実装上の制約}
 本アプリケーションは、入力された電話番号をインターネット上で検索し、その番号がスパムに該当するか否か調査する処理の実装を提出環境、開発環境の都合上行っていない。したがって下記のように代替の実装を行っている。
 %ここにその説明を。
-\section{並行処理部分の概要}
+\begin{table}[H]
+  \begin{tabular}{|l|l|}\hline
+  本来の実装        & 代替の実装                       \\\hline
+  番号の照会処理      & Thread.sleep()              \\\hline
+  照会した電話番号のデータ & JudgeSpamクラス内の配列spamNumbers \\ \hline
+  \end{tabular}
+\end{table}
 \section{クラス・メソッドの説明}
+今回作成した各クラスをJavaファイルごとに説明する。
+\begin{itemize}
+  \item Main.java
+  \begin{table}[H]
+  \begin{tabular}{|l|l|} \hline
+  メソッド名 & 説明                                                         \\ \hline
+  main  & アプリケーションの呼び出しを行う。\\
+  &SpamCallIdentiferクラスのdisplayメソッドを呼び出している。\\ \hline
+  \end{tabular}
+\end{table}
+  \item JudgeSpam.java
+  \begin{table}[H]
+  \begin{tabular}{|l|l|} \hline
+  メソッド名       & 説明                                                                                        \\ \hline
+  run         & 番号照会を、同クラス内の配列spamNumbersでシミュレーションする。
+  \\&spamNumbers内に入力された番号が含まれていないか判定する。 \\ \hline
+  inputNumber & 引数：String
+  \\&同クラス内のクラス変数numberへ引数の文字列を渡す。    \\ \hline
+  \end{tabular}
+\end{table}
+  \item SpamCallIdentifer.java
+  \begin{enumerate}
+    \item  SpamCallIdentiferクラス
+    \begin{table}[H]
+\begin{tabular}{|l|l|} \hline
+メソッド名            & 説明                                                                     \\ \hline
+loadingAnimation & 番号照会中のローディングアニメーションのコンポーネントを作成し、返却する。\\&返り値：JPanel      \\ \hline
+actionPerformed  & 描画されたボタンのクリックイベントをリスンし、クリック後の各処理を呼び出す。\\&引数：ActionEvent \\ \hline
+display          & コンストラクタで生成した初期コンポーネントの配置と描画を行う。                                       \\ \hline
+\end{tabular}
+\end{table}
+\item EndCatcherクラス
+\begin{table}[H]
+  \begin{tabular}{|l|l|} \hline
+  メソッド名 & 説明                                                  \\ \hline
+  run   & 照会処理（JudgeSpamクラス）のスレッドの終了を監視し、新規ウィンドウを生成し、結果を表示する。 \\ \hline
+  \end{tabular}
+\end{table}
+  \end{enumerate}
+\end{itemize}
+\section{並行処理部分の概要}
+今回は、以下２つの部分でマルチスレッドを実装している。
+\begin{itemize}
+  \item EndCatcherクラス
+  \item JudgeSpam
+\end{itemize}
+マルチスレッドを実装するため、以上の2クラスにはRunnableインタフェースをimplementsしている。\par
+JudgeSpamクラスは、インターネット上で入力された番号を検索するという、時間のかかる処理を想定している。また此のクラスのrunメソッドは、ユーザーが操作するGUI画面にある「判定開始」ボタンをクリックした時にThread.startメソッドを介して実行される。\par
+
 \section{並行処理実現のための工夫した点}
+先程も述べたが、インターネット上で番号検索を行う処理を想定しているJudgeSpamクラスは処理に時間のかかるクラスである。したがって、GUI表示を行うSpamCallIdentiferクラスと同一のスレッドで実行してしまうと、GUI表示の描画処理がJudgeSpamクラスのrunメソッドが終了するまで停止してしまい、画面が応答しなくなってしまう。\par
+通常、GUIアプリケーションでは、画面を制御しているスレッドにて、数十ミリ秒以上時間がかかる処理を実行してはならない。なぜなら、画面の反応が悪く、OSがアプリケーションを応答停止状態と見なし動作を停止してしまうからである。これを回避するため、JudgeSpamクラスのrunメソッドをSpamCallIdentiferクラス内のスレッドとは別スレッドで呼び出している。このようにすることで、JudgeSpamクラスのrunメソッドの処理と、SpamCallIdentiferクラスの各メソッドが行うGUI描画更新処理を両方実行し、アプリケーションが応答停止になることを防止している。
 \section{開発環境}
 \begin{itemize}
   \item ホストOS：Window10 Home 20H2
@@ -71,9 +128,9 @@ SpamCallIdentiferは、入力として電話番号（ハイフン無し）を受
   \begin{itemize}
     \item バージョン情報は下記に示す。
     \begin{verbatim}
-  openjdk version "11.0.11" 2021-04-20
-  OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
-  OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode, sharing)
+openjdk version "11.0.11" 2021-04-20
+OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
+OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode, sharing)
     \end{verbatim}
     \item 利用したライブラリは下記。
     \begin{itemize}

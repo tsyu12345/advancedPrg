@@ -5,14 +5,13 @@ public class JudgeSpam implements Runnable{
     /**
      * インターネット調査の代替クラス。
      */
-    private boolean isSpam;
+    public boolean isSpam;
     private String number;
-    private boolean searching;
+    public boolean searching;
     private String[] spamNumbers = {"07040749322", "0458927610", "1234567890"};
 
-    JudgeSpam(String phoneNumber) {
+    JudgeSpam() {
         this.isSpam = false;
-        this.number = phoneNumber;
     }
 
     /**
@@ -31,19 +30,15 @@ public class JudgeSpam implements Runnable{
             }
             //結果集約処理の代替
             Thread.sleep(5000);
+            this.searching = false;
+            System.out.println("End");
+
         }catch(InterruptedException error) {
             System.out.println("InterrupptedException!!");
         }
     }
 
-    public boolean isSpamNumber() throws ProcessIncompleteException{
-        
-        return this.isSpam;
-    }
-}
-
-class ProcessIncompleteException extends Exception {
-    public ProcessIncompleteException(String errorMsg) {
-        super(errorMsg);
+    public void inputNumber(String num) {
+        this.number = num;
     }
 }

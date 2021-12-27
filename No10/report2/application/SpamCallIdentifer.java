@@ -13,6 +13,7 @@ public class SpamCallIdentifer extends JFrame implements  ActionListener{
     private JLabel label;
     private JTextField textBox;
     private JButton OkBtn;
+    private JudgeSpam identifer;
 
     /**
      * ウィンドウ生成時の初期化処理
@@ -30,15 +31,14 @@ public class SpamCallIdentifer extends JFrame implements  ActionListener{
         this.textBox.setFont(new Font("Arial",Font.PLAIN, 20));
         this.OkBtn = new JButton("判定開始");
         this.OkBtn.addActionListener(this);
-
-
-
     }
 
     /**
      * OKボタンのクリックでコールバックする関数
      */
-    private void btnCallback() {
+    private void btnCallback(String input) {
+        
+        //ローディングアニメーションの描画
         ImageIcon loadingIcon = new ImageIcon("icon_loader_f_ww_01_s1.gif");
         JLabel gifLabel = new JLabel("searching...", loadingIcon, JLabel.CENTER);
         gifLabel.setFont(new Font("Arial",Font.PLAIN, 30));
@@ -47,10 +47,19 @@ public class SpamCallIdentifer extends JFrame implements  ActionListener{
         Container contentPane = getContentPane();
         contentPane.add(loadingPanel, BorderLayout.SOUTH);
         setVisible(true);
+
+        //別スレッドで検索処理をよびだす。
+        this.identifer = new JudgeSpam(input);
+        Thread background = new Thread(this.identifer);
+        background.start();
+        System.out.println(input);
     }
 
     public void actionPerformed(ActionEvent e) {
-        btnCallback();
+        String input = this.textBox.getText();
+        if(input.length() > 0) {
+            btnCallback(input);
+        }
     }
 
 

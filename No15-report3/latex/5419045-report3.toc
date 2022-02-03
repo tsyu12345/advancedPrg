@@ -3,10 +3,11 @@
 \contentsline {section}{\numberline {3}ネットワークプログラミング概要}{2}{section.3}%
 \contentsline {subsection}{\numberline {3.1}プロトコル}{2}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}TCP/IP}{3}{subsection.3.2}%
-\contentsline {section}{\numberline {4}クライアントサイドプログラミング}{3}{section.4}%
-\contentsline {section}{\numberline {5}サーバーサイドプログラミング}{3}{section.5}%
-\contentsline {section}{\numberline {6}アプリケーション実装}{3}{section.6}%
-\contentsline {subsection}{\numberline {6.1}開発環境}{3}{subsection.6.1}%
+\contentsline {subsection}{\numberline {3.3}Processingにおけるネットワークプログラミング}{3}{subsection.3.3}%
+\contentsline {section}{\numberline {4}クライアントサイドプログラミング}{4}{section.4}%
+\contentsline {section}{\numberline {5}サーバーサイドプログラミング}{4}{section.5}%
+\contentsline {section}{\numberline {6}アプリケーション実装}{4}{section.6}%
+\contentsline {subsection}{\numberline {6.1}開発環境}{4}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}制作内容}{4}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}挙動説明}{4}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}工夫点}{4}{subsection.6.4}%

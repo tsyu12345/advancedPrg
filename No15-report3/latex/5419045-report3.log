@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  3 FEB 2022 23:08
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  3 FEB 2022 23:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -548,55 +548,60 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 30.
  (./5419045-report3.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 6.
+(Font)              <10> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 6.
+(Font)              <7> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 6.
+(Font)              <5> on input line 4.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 6.
+(Font)              scaled to size 6.72699pt on input line 4.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 6.
+(Font)              scaled to size 4.805pt on input line 4.
 )
 \tf@toc=\write4
 \openout4 = `5419045-report3.toc'.
 
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 38.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 38.
  [1
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-1.
-
-(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-5.
+File: images/180px-Processing_Logo_Clipped.svg.png Graphic file (type bmp)
+<images/180px-Processing_Logo_Clipped.svg.png>
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+3.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 62.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 47.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 47.
+File: images/ositcpip.png Graphic file (type bmp)
+<images/ositcpip.png>
  [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 62.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
+5.
+
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
+ [4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
  (./5419045-report3.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 62.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 62.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 85.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
 Package rerunfilecheck Info: File `5419045-report3.out' has not changed.
-(rerunfilecheck)             Checksum: 7B5D85F54FA7B1E77EA37092B4729B98;654.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 62.
+(rerunfilecheck)             Checksum: EB0EC0261C5E9123D153C9CE309919BE;811.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
  ) 
 Here is how much of TeX's memory you used:
- 7461 strings out of 482863
- 110114 string characters out of 5959218
- 372921 words of memory out of 5000000
- 22578 multiletter control sequences out of 15000+600000
+ 7477 strings out of 482863
+ 110474 string characters out of 5959218
+ 373019 words of memory out of 5000000
+ 22588 multiletter control sequences out of 15000+600000
  592179 words of font info for 115 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
- 37i,6n,29p,380b,372s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,6n,29p,459b,404s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 5419045-report3.dvi (2 pages, 9232 bytes).
+Output written on 5419045-report3.dvi (4 pages, 17448 bytes).

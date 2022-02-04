@@ -60,9 +60,51 @@ TCP/IPは一般的にネットワークプロトコル群の総称を指し、�
 Processingには、ネットワーク上のコンピュータ間でデータを読み書きするための機能が標準ライブラリとして準備されている。そのため、Processingの実行環境以外新たに外部からインストールするライブラリやモジュールは必要ない。\par
 ネットワーク通信を行うためには当然だが、クライアントサイド（接続する側）とサーバーサイド（接続される側）双方にプログラムを用意する必要がある。そのための関連機能として、Processingには「processing.net」と呼ばれるライブラリが用意されている。\par
 それぞれのサイドのプログラムを作成する際はこのライブラリをインポートする必要がある。\par
+\begin{verbatim}
+  import processing.net.*;
+\end{verbatim}
 各サイドで利用するメソッドやクラスの使用法は後述する章を参照いただきたい。
-\section{クライアントサイドプログラミング}
-\section{サーバーサイドプログラミング}
+\section{クライアントサイド}
+\subsection{ProcessingのClientクラス}
+Processingにてクライアントサイドプログラムを実装するには、Clientクラスを使用する。このClientクラスを用いることで、後述するServerクラスを持つプログラムとTCP通信ができる。\par
+Clientクラスは、３引数のコンストラクタを持っている。以下引数の概要を示す。
+\begin{verbatim}
+  Client(PApplet インスタンス, サーバーのIPアドレスorホスト名, サーバーのポート番号)
+\end{verbatim}
+\begin{enumerate}
+  \item PApplet インスタンス：自身のインスタンスを示す「this」。
+  \item サーバーのIPアドレスorホスト名：文字列(String)型。例：192.168.xx.x。
+  \item サーバーのポート番号：サーバー側のアプリケーションを識別するためのポート番号。整数(int)型。
+\end{enumerate}
+このClientクラスは以下の様なメソッドを持つ。※説明文は公式リファレンスより出典。
+%%ここにメソッドの表と説明。
+
+
+\section{サーバーサイド}
+\subsection{ProcessingのServerクラス}
+前章のClientクラスと同様に、Processingでサーバーサイドプログラムを実装するには、Serverクラスを利用する。\par
+このクラスは、２引数のコンストラクタを持っている。
+\begin{verbatim}
+  Client(PApplet インスタンス, 待機するポート番号)
+\end{verbatim}
+\begin{enumerate}
+  \item PApplet インスタンス：自身のインスタンスを示す「this」。
+  \item 待機するポート番号：クライアント側の通信を待機するポート番号。整数(int)型。
+\end{enumerate}
+\section{Processingのイベントハンドラ}
+TCP通信を用いるプログラミングでは、サーバー接続時や、切断時など様々な場面のときに行う処理である「イベントハンドラ」を定義することができる。特にProcessingでは、次のイベントを利用することができる。\par
+\begin{itemize}
+  \item serverEvent：serverEvent()内のコードは、プログラム内に作成されたサーバーに新しいクライアントが接続されたときに実行される。
+  \item clientEvent：サーバーが既存のクライアントオブジェクトに値を送信する際に呼び出される。
+  \item disconnectEvent：クライアントとの接続が切れた際に呼び出される。
+\end{itemize}
+各イベントハンドラは、上記名前の関数を定義しその中に処理を記述する。
+\begin{verbatim}
+  void serverEvent(Server s, Clinet c) {
+    //Do something....
+  }
+\end{verbatim}
+
 \section{アプリケーション実装}
 \subsection{開発環境}
 今回の開発は仮想マシン上で行った。下記に当時の環境を示す。
